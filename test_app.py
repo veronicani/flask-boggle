@@ -22,7 +22,11 @@ class BoggleAppTestCase(TestCase):
 
         with app.test_client() as client:
             response = client.get('/')
-            ...
+            html = response.get_data(as_text=True)
+
+            self.assertEqual(response.status_code, 200)
+            self.assertIn('<form id="newWordForm">', html)
+
             # test that you're getting a template
 
     def test_api_new_game(self):
@@ -31,3 +35,5 @@ class BoggleAppTestCase(TestCase):
         with app.test_client() as client:
             ...
             # write a test for this route
+
+
