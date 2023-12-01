@@ -34,3 +34,9 @@ class WordList:
 
 
 english_words = WordList("dictionary.txt")
+
+# dict.txt (cow, cat, dog)
+# animals = WordList("dict.txt")
+# animals.words = {"COW" , "CAT", "DOG"}
+# animals.check_word("ZEBRA") returns False
+# animals.check_word("COW") returns True
