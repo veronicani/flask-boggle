@@ -36,7 +36,16 @@ class BoggleAppTestCase(TestCase):
         """Test starting a new game."""
 
         with app.test_client() as client:
-            ...
+            # We are creating a fake browser at the endpoint /api/newgame
+            # Retrieving the return value which is the response (json data about
+            # the new game)
+            response = client.post('/api/new-game')
+            # breakpoint()
+            new_game_json_data = response.get_data(as_text=True)
+
+            self.assertEqual(response.is_json, True)
+            self.assertEqual(response.status_code, 200)
+            self.assertIn("gameId", new_game_json_data)
             # write a test for this route
 
 

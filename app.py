@@ -28,7 +28,15 @@ def new_game():
 
     # needs to return a JSON
     game_info = {"gameId": game_id, "board": game.board}
-    print('game_id', game_id, "board-game", game.board)
+    print('gameId', game_id, "board-game", game.board)
 
     # print('json newgame:', jsonify(game_info))
     return jsonify(game_info)
+
+    # what we are returning
+    # game_id 5b07d99f-3611-45c8-b88f-f2b06e3e47c4
+    # board-game [['S', 'F', 'O', 'N', 'N'],
+    #            ['I', 'T', 'A', 'N', 'O'],
+    #            ['X', 'L', 'S', 'J', 'E'],
+    #            ['R', 'U', 'F', 'E', 'X'],
+    #            ['O', 'T', 'F', 'E', 'R']]
