@@ -30,6 +30,7 @@ class WordList:
     def check_word(self, word):
         """Is word in word list?
 
+
             >>> english_words.check_word("CAT")
             True
             >>> english_words.check_word("XXX")
