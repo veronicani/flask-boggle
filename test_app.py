@@ -39,13 +39,20 @@ class BoggleAppTestCase(TestCase):
             # We are creating a fake browser at the endpoint /api/newgame
             # Retrieving the return value which is the response (json data about
             # the new game)
+            # getting a response object
             response = client.post('/api/new-game')
             # breakpoint()
+
+            # gameId = response.d
+            # in order to get the json data, we have to use .get_json()
+            gameData = response.get_json()
             new_game_json_data = response.get_data(as_text=True)
 
             self.assertEqual(response.is_json, True)
             self.assertEqual(response.status_code, 200)
             self.assertIn("gameId", new_game_json_data)
+            self.assertTrue(gameData["gameId"] in games)
+            # we want to determine if the game_id exist in the dictionary
             # write a test for this route
 
 

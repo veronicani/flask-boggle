@@ -28,7 +28,7 @@ def new_game():
 
     # needs to return a JSON
     game_info = {"gameId": game_id, "board": game.board}
-    print('gameId', game_id, "board-game", game.board)
+    # print('gameId', game_id, "board-game", game.board)
 
     # print('json newgame:', jsonify(game_info))
     return jsonify(game_info)
