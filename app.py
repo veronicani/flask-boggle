@@ -40,3 +40,30 @@ def new_game():
     #            ['X', 'L', 'S', 'J', 'E'],
     #            ['R', 'U', 'F', 'E', 'X'],
     #            ['O', 'T', 'F', 'E', 'R']]
+
+@app.post("/api/score-word")
+def score_word():
+    """"""
+    # AJAX request, contains body JSON w/ game id and word
+    # access the game id and word from the request body
+    request_data = request.get_json()
+    print('request_data: ', request_data)
+    
+    game_id = request_data.get("gameId")
+    word = request_data.get("word")
+    print('game_id: ', game_id, "word: ", word)
+    # debugger()
+
+    #check if the word is legal
+        # check if word is in word list
+        # check if word is in the board
+    current_game = games[game_id]
+    # TODO: split into separate if statements
+    if (current_game.is_word_in_word_list(word) and 
+        current_game.check_word_on_board(word)):
+        # return jsonify({result: "ok"})
+    # if not on board: {result: "not-on-board"}
+    # if a valid word: {result: "ok"}
+
+    # {gameId: "5b07d99f-3611-45c8-b88f-f2b06e3e47c4", 
+    #  word: "CAT"}
